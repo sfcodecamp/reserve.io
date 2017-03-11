@@ -18,7 +18,7 @@ An easy way for groups to book reservations through Open Table.
   - npm install (installs all of the dependencies needed)
   - git remote add upstream https://github.com/sfcodecamp/reserve.io.git (set a remote to the main repo so later you can pull down updates from other team members)
   - npm run start
-4. Follow these steps to get your [Open Table API][] token.
+4. Follow these steps to get your [Open Table][] API token.
 
 ##Roadmap
 v1.0 Build a web based app with React/Redux to query Open Table API for restaurant and reservation data, render UI cards of restaurant data in a grid layout, generate unique URLs for each group, implement Open Table reservation integration, functionality to upvote on options, and add awesome interactive animations.
