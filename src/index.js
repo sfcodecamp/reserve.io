@@ -15,6 +15,10 @@ const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)))
 
 // const StoreInstance = Store();
 
+//This is for material-ui
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 ReactDOM.render(
  <Provider store={store}>
    <App />
