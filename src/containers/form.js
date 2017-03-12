@@ -70,14 +70,14 @@ class MyForm extends Component {
               <RaisedButton
                 label="Submit"
                 type="submit"
-                labelColor="#FFFFFF"
+                labelColor="#FFF"
                 backgroundColor="#26A69A"/>
               <RaisedButton
                 style={style}
                 label="Clear"
                 onTouchTap={reset}
                 disabled={pristine}
-                labelColor="#FFFFFF"
+                labelColor="#FFF"
                 backgroundColor="#C15055"/>
             </div>
 

@@ -19,8 +19,8 @@ const RestaurantCard = () => (
       Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
     </CardText>
     <CardActions>
-      <FlatButton label="Upvote" />
-      <FlatButton label="Downvote" />
+      <FlatButton label="Upvote" style={styles} primary={true}/>
+      <FlatButton label="Downvote" style={styles} secondary={true}/>
     </CardActions>
   </Card>
 );
