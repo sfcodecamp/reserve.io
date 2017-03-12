@@ -1,4 +1,9 @@
 
+build
+
+# Environment variables
+server/.env
+
 # Logs
 logs
 *.log
