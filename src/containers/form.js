@@ -36,14 +36,14 @@ class MyForm extends Component {
             <Field name="date"
               component={DatePicker}
               format={null}
-              floatingLabelText="Day of reservation?"
+              floatingLabelText="Reservation Date"
               />
 
             <Field name="time"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="At what time?"
+              floatingLabelText="Reservation Time"
               />
 
             <Field name="guests"
@@ -56,14 +56,14 @@ class MyForm extends Component {
               component={DatePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="DEADLINE's DATE"
+              floatingLabelText="Deadline Date"
               />
 
             <Field name="deadLineTime"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="DEADLINE's TIME"
+              floatingLabelText="Deadline Time"
               />
 
             <div>
@@ -78,7 +78,7 @@ class MyForm extends Component {
                 onTouchTap={reset}
                 disabled={pristine}
                 labelColor="#FFF"
-                backgroundColor="#C15055"/>
+                backgroundColor="#D4606C"/>
             </div>
 
           </form>
