@@ -15,6 +15,7 @@ const server = app.listen(process.env.PORT || 8000, () => console.log('Express S
 
 const io = require('socket.io')(server);
 
+io.set('origins', '*:*');
 io.on('connection', (socket) => {
 	// inital connection of any client
   console.log('A new user connected');
@@ -28,5 +29,3 @@ io.on('connection', (socket) => {
     console.log('A user disconnected');
   });
 });
-
-io.set('origins', 'https://aqueous-reef-24485.herokuapp.com:*');
