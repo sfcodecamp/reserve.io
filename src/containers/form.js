@@ -53,7 +53,7 @@ class MyForm extends Component {
               component={TextField}/>
 
             <Field name="deadLineDate"
-              component={TimePicker}
+              component={DatePicker}
               format={null}
               defaultValue={null}
               floatingLabelText="DEADLINE's DATE"
