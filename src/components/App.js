@@ -3,10 +3,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import './App.css';
 
+import Form from '../containers/form'
+
 class App extends Component {
   render() {
     return (
-      <h1>hello</h1>
+      <MuiThemeProvider>
+        <div>
+          <Form />
+        </div>
+      </MuiThemeProvider>
     );
   }
 }
