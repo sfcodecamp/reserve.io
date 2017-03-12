@@ -1,8 +1,9 @@
-html {
-  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
 body {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
   margin: 0;
 }
 
@@ -18,10 +19,9 @@ body {
 }
 
 .card {
-  font-family: GillSans, Calibri, Trebuchet, sans-serif;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 28%;
+  width: 31%;
 }
 
 .center {
@@ -36,6 +36,10 @@ h1 {
   padding-bottom: 20px;
 }
 
+h2 {
+  margin-top: 0;
+}
+
 .form {
   margin-right: 30px;
   margin-bottom: 30px;
@@ -46,19 +50,26 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 50px;
+  margin: 40px 30px;
 }
 
-@media screen and (max-width: 835px) {
-  .card {
-    width: 50%;
+@media screen and (max-width: 1080px) {
+  .cards {
     justify-content: center;
+  }
+
+  .card {
+    width: 48%;
   }
 }
 
-@media screen and (max-width: 550px) {
-  .card {
-    width: 100%;
+@media screen and (max-width: 620px) {
+  .cards {
     justify-content: center;
+  }
+
+  .card {
+    margin: 0;
+    width: 100%;
   }
 }
