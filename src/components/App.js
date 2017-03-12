@@ -5,17 +5,11 @@ import './App.css';
 
 import Form from '../containers/form'
 
-const styles = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'space-around'
-}
-
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div style={styles}>
+        <div>
           <Form />
           <RestaurantCard />
           <RestaurantCard />
