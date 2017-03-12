@@ -1,9 +1,9 @@
-import cart from './cart';
 import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
+import GetRestaurant from './get_restaurant';
 
 const rootReducer = combineReducers({
-  cart,
-  form: formReducer
+  form: formReducer,
+  restaurants: GetRestaurant
 });
 export default rootReducer;
