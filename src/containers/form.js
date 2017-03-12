@@ -71,7 +71,7 @@ class MyForm extends Component {
                 label="Submit"
                 type="submit"
                 labelColor="#FFF"
-                backgroundColor="#26A69A"/>
+                backgroundColor="#00BCD4"/>
               <RaisedButton
                 style={style}
                 label="Clear"
