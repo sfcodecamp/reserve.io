@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div>
-          <NavBar />
+          <h1 className="center">Welcome to Reserve!</h1>
           <div className="container">
             <Form />
             <div className="cards">

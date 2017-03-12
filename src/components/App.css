@@ -2,6 +2,10 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 .title {
   text-align: center;
 }
@@ -13,8 +17,16 @@ html {
   width: 800px;
 }
 
-.center-form {
+.center {
   text-align: center;
+}
+
+h1 {
+  background-color: #BF1717;
+  color: #FFF;
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .form {
