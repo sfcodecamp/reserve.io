@@ -12,9 +12,10 @@ functions:
           path: opentable
           method: get
           cors: true
-  landingPage:
-    handler: handler.landingPage
+  info:
+    handler: handler.info
     events:
       - http:
-          path: home
+          path: info
           method: get
+          cors: true
