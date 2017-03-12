@@ -11,10 +11,10 @@
         "LogGroupName": "/aws/lambda/serverlessquick-dev-opentable"
       }
     },
-    "LandingPageLogGroup": {
+    "InfoLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/serverlessquick-dev-landingPage"
+        "LogGroupName": "/aws/lambda/serverlessquick-dev-info"
       }
     },
     "IamRoleLambdaExecution": {
@@ -65,7 +65,7 @@
                     },
                     {
                       "Fn::GetAtt": [
-                        "LandingPageLogGroup",
+                        "InfoLogGroup",
                         "Arn"
                       ]
                     }
@@ -97,7 +97,7 @@
                         [
                           {
                             "Fn::GetAtt": [
-                              "LandingPageLogGroup",
+                              "InfoLogGroup",
                               "Arn"
                             ]
                           },
@@ -132,7 +132,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverlessquick/dev/1489284775532-2017-03-12T02:12:55.532Z/serverlessquick.zip"
+          "S3Key": "serverless/serverlessquick/dev/1489351280655-2017-03-12T20:41:20.655Z/serverlessquick.zip"
         },
         "FunctionName": "serverlessquick-dev-opentable",
         "Handler": "handler.opentable",
@@ -150,27 +150,27 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "OpentableLambdaVersionus5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTDhI": {
+    "OpentableLambdaVersion1KToYhpkIVQONOLoKnlK8GMHbUg53AWSwl7gcYEn4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "OpentableLambdaFunction"
         },
-        "CodeSha256": "us5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTD+hI="
+        "CodeSha256": "1KToYhpkI/VQONO/LoKnlK8GMHbUg53AWSwl7gcYEn4="
       }
     },
-    "LandingPageLambdaFunction": {
+    "InfoLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/serverlessquick/dev/1489284775532-2017-03-12T02:12:55.532Z/serverlessquick.zip"
+          "S3Key": "serverless/serverlessquick/dev/1489351280655-2017-03-12T20:41:20.655Z/serverlessquick.zip"
         },
-        "FunctionName": "serverlessquick-dev-landingPage",
-        "Handler": "handler.landingPage",
+        "FunctionName": "serverlessquick-dev-info",
+        "Handler": "handler.info",
         "MemorySize": 1024,
         "Role": {
           "Fn::GetAtt": [
@@ -185,14 +185,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "LandingPageLambdaVersionus5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTDhI": {
+    "InfoLambdaVersion1KToYhpkIVQONOLoKnlK8GMHbUg53AWSwl7gcYEn4": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
-          "Ref": "LandingPageLambdaFunction"
+          "Ref": "InfoLambdaFunction"
         },
-        "CodeSha256": "us5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTD+hI="
+        "CodeSha256": "1KToYhpkI/VQONO/LoKnlK8GMHbUg53AWSwl7gcYEn4="
       }
     },
     "ApiGatewayRestApi": {
@@ -216,7 +216,7 @@
         }
       }
     },
-    "ApiGatewayResourceHome": {
+    "ApiGatewayResourceInfo": {
       "Type": "AWS::ApiGateway::Resource",
       "Properties": {
         "ParentId": {
@@ -225,7 +225,7 @@
             "RootResourceId"
           ]
         },
-        "PathPart": "home",
+        "PathPart": "info",
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
         }
@@ -277,6 +277,52 @@
         }
       }
     },
+    "ApiGatewayMethodInfoOptions": {
+      "Type": "AWS::ApiGateway::Method",
+      "Properties": {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "OPTIONS",
+        "MethodResponses": [
+          {
+            "StatusCode": "200",
+            "ResponseParameters": {
+              "method.response.header.Access-Control-Allow-Origin": true,
+              "method.response.header.Access-Control-Allow-Headers": true,
+              "method.response.header.Access-Control-Allow-Methods": true,
+              "method.response.header.Access-Control-Allow-Credentials": true
+            },
+            "ResponseModels": {}
+          }
+        ],
+        "RequestParameters": {},
+        "Integration": {
+          "Type": "MOCK",
+          "RequestTemplates": {
+            "application/json": "{statusCode:200}"
+          },
+          "IntegrationResponses": [
+            {
+              "StatusCode": "200",
+              "ResponseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'",
+                "method.response.header.Access-Control-Allow-Credentials": "'false'"
+              },
+              "ResponseTemplates": {
+                "application/json": ""
+              }
+            }
+          ]
+        },
+        "ResourceId": {
+          "Ref": "ApiGatewayResourceInfo"
+        },
+        "RestApiId": {
+          "Ref": "ApiGatewayRestApi"
+        }
+      }
+    },
     "ApiGatewayMethodOpentableGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
@@ -315,13 +361,13 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayMethodHomeGet": {
+    "ApiGatewayMethodInfoGet": {
       "Type": "AWS::ApiGateway::Method",
       "Properties": {
         "HttpMethod": "GET",
         "RequestParameters": {},
         "ResourceId": {
-          "Ref": "ApiGatewayResourceHome"
+          "Ref": "ApiGatewayResourceInfo"
         },
         "RestApiId": {
           "Ref": "ApiGatewayRestApi"
@@ -341,7 +387,7 @@
                 ":lambda:path/2015-03-31/functions/",
                 {
                   "Fn::GetAtt": [
-                    "LandingPageLambdaFunction",
+                    "InfoLambdaFunction",
                     "Arn"
                   ]
                 },
@@ -353,7 +399,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1489284775543": {
+    "ApiGatewayDeployment1489351280665": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -363,7 +409,7 @@
       },
       "DependsOn": [
         "ApiGatewayMethodOpentableGet",
-        "ApiGatewayMethodHomeGet"
+        "ApiGatewayMethodInfoGet"
       ]
     },
     "OpentableLambdaPermissionApiGateway": {
@@ -399,12 +445,12 @@
         }
       }
     },
-    "LandingPageLambdaPermissionApiGateway": {
+    "InfoLambdaPermissionApiGateway": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "FunctionName": {
           "Fn::GetAtt": [
-            "LandingPageLambdaFunction",
+            "InfoLambdaFunction",
             "Arn"
           ]
         },
@@ -442,13 +488,13 @@
     "OpentableLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "OpentableLambdaVersionus5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTDhI"
+        "Ref": "OpentableLambdaVersion1KToYhpkIVQONOLoKnlK8GMHbUg53AWSwl7gcYEn4"
       }
     },
-    "LandingPageLambdaFunctionQualifiedArn": {
+    "InfoLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "LandingPageLambdaVersionus5Pc9zOLMKW7kKnNhhwfzUSglVvRQnEijm5BdTDhI"
+        "Ref": "InfoLambdaVersion1KToYhpkIVQONOLoKnlK8GMHbUg53AWSwl7gcYEn4"
       }
     },
     "ServiceEndpoint": {
