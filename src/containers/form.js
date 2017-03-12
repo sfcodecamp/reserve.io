@@ -23,10 +23,10 @@ class MyForm extends Component {
     };
     const { handleSubmit, reset, pristine } = this.props;
     return(
-      <div>
-        <h1 className="title">Welcome {'Guest'} !</h1>
+      <div className="form">
+        <h2 className="title">Search for restaurants</h2>
         <div>
-          <form className="center-form" onSubmit={handleSubmit(this.onSubmit)}>
+          <form className="center" onSubmit={handleSubmit(this.onSubmit)}>
             <Field name="city"
               floatingLabelText="Enter City"
               type="text"
@@ -36,14 +36,14 @@ class MyForm extends Component {
             <Field name="date"
               component={DatePicker}
               format={null}
-              floatingLabelText="Day of reservation?"
+              floatingLabelText="Reservation Date"
               />
 
             <Field name="time"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="At what time?"
+              floatingLabelText="Reservation Time"
               />
 
             <Field name="guests"
@@ -56,29 +56,29 @@ class MyForm extends Component {
               component={DatePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="DEADLINE's DATE"
+              floatingLabelText="Deadline Date"
               />
 
             <Field name="deadLineTime"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              floatingLabelText="DEADLINE's TIME"
+              floatingLabelText="Deadline Time"
               />
 
             <div>
               <RaisedButton
                 label="Submit"
                 type="submit"
-                labelColor="#FFFFFF"
+                labelColor="#FFF"
                 backgroundColor="#26A69A"/>
               <RaisedButton
                 style={style}
                 label="Clear"
                 onTouchTap={reset}
                 disabled={pristine}
-                labelColor="#FFFFFF"
-                backgroundColor="#C15055"/>
+                labelColor="#FFF"
+                backgroundColor="#D4606C"/>
             </div>
 
           </form>
