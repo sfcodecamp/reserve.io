@@ -3,11 +3,16 @@ import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Car
 import FlatButton from 'material-ui/FlatButton';
 
 const styles = {
-  fontFamily: 'GillSans, Calibri, Trebuchet, sans-serif'
+  font: {
+    fontFamily: 'GillSans, Calibri, Trebuchet, sans-serif',
+  },
+  downVote: {
+    color: '#D4606C'
+  }
 }
 
 const RestaurantCard = () => (
-  <Card className="card" style={styles}>
+  <Card className="card" style={styles.font}>
     <CardMedia>
       <img src="images/nature-600-337.jpg" alt="Restaurant"/>
     </CardMedia>
@@ -19,8 +24,8 @@ const RestaurantCard = () => (
       Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
     </CardText>
     <CardActions>
-      <FlatButton label="Upvote" style={styles} primary={true}/>
-      <FlatButton label="Downvote" style={styles} secondary={true}/>
+      <FlatButton label="Upvote" style={styles.font} primary={true}/>
+      <FlatButton label="Downvote" style={styles.font, styles.downVote} secondary={true}/>
     </CardActions>
   </Card>
 );
