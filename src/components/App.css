@@ -12,6 +12,7 @@ body {
 }
 
 .cards {
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
