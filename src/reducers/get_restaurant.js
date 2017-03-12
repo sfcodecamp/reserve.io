@@ -7,6 +7,17 @@ export default function(state = INITIAL, action){
     case GET_RESTAURANT:
       console.log(action)
       return state
+
+    case 'AVAILABILITY':
+
+      return {...state,
+        availability: {
+          ...state.availability,
+          [action.payload.id]: action.payload
+        }
+      }
+    default:
+      return state
   }
 
   return state;
