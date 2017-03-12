@@ -28,3 +28,7 @@ io.on('connection', (socket) => {
     console.log('A user disconnected');
   });
 });
+
+io.configure(() => {
+  io.set('origins', 'https://aqueous-reef-24485.herokuapp.com/*');
+});
