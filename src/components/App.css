@@ -14,7 +14,14 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: 800px;
+  max-width: 800px;
+}
+
+.card {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 28%;
 }
 
 .center {
@@ -39,4 +46,18 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   margin: 50px;
+}
+
+@media screen and (max-width: 835px) {
+  .card {
+    width: 50%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    width: 100%;
+    justify-content: center;
+  }
 }
