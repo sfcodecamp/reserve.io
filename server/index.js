@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, '../build/')));
+app.use(express.static(path.join(__dirname, './build/')));
 
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -15,7 +15,7 @@ app.use(function (req, res, next) {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../build/index.html'));
+  res.sendFile(path.join(__dirname, './build/index.html'));
 });
 
 const server = app.listen(process.env.PORT || 8000, () => console.log('Express Server is listening on port 8000'));
