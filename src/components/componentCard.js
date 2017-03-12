@@ -26,7 +26,7 @@ class RestaurantCard extends Component {
         <CardText>
           {description}
         </CardText>
-        <CardActions>
+        <CardActions className="center">
           <FlatButton label="Upvote" style={styles.font} primary={true}/>
           <FlatButton label="Downvote" style={styles.font, styles.downVote} secondary={true}/>
         </CardActions>
