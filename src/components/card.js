@@ -2,8 +2,12 @@ import React from 'react';
 import {Card, CardActions, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+const styles = {
+  fontFamily: 'GillSans, Calibri, Trebuchet, sans-serif'
+}
+
 const RestaurantCard = () => (
-  <Card>
+  <Card className="card" style={styles}>
     <CardMedia>
       <img src="images/nature-600-337.jpg" alt="Restaurant"/>
     </CardMedia>
