@@ -11,19 +11,18 @@ import ContainerCards from '../containers/containerCards'
 import { SocketProvider } from 'socket.io-react';
 import io from 'socket.io-client';
 const DEV_HOST = 'http://localhost:8000';
-const PROD_HOST = '';
+const PROD_HOST = 'https://aqueous-reef-24485.herokuapp.com';
 
+const socket = io.connect(PROD_HOST);
 // const socket = io.connect(DEV_HOST);
 
 class App extends Component {
-  constructor() {
-    super();
-  }
   componentDidMount() {
-    // socket.emit('init');
-    // socket.on('welcome', data => {
-    //   console.log(data);
-    // });
+    console.log('calling on: ', PROD_HOST);
+    socket.emit('init');
+    socket.on('welcome', data => {
+      console.log(data);
+    });
   }
   render() {
     return (
