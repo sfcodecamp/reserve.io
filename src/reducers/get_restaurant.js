@@ -1,4 +1,4 @@
-import { GET_RESTAURANT } from '../actions/types';
+import { GET_RESTAURANT, RESET_CARDS } from '../actions/types';
 
 let exData = [
   {
@@ -27,6 +27,8 @@ export default function(state = INITIAL, action){
     case GET_RESTAURANT:
       console.log(action)
       return state
+    case RESET_CARDS:
+      return {...state, data: []}
   }
 
   return state;
