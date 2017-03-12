@@ -6,21 +6,33 @@ import './App.css';
 import Form from '../containers/form'
 
 const styles = {
-  display: 'flex',
-  flexWrap: 'wrap',
-  justifyContent: 'center'
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    margin: '50px'
+  },
+  cards: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: '800px'
+  }
 }
 
 class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <div style={styles}>
+        <div style={styles.container}>
           <Form />
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
+          <div style={styles.cards}>
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+            <RestaurantCard />
+          </div>
         </div>
       </MuiThemeProvider>
     );
