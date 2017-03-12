@@ -19,9 +19,10 @@ body {
 }
 
 .card {
+  font-family: GillSans, Calibri, Trebuchet, sans-serif;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 31%;
+  width: 28%;
 }
 
 .center {
@@ -71,5 +72,19 @@ h2 {
   .card {
     margin: 0;
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 835px) {
+  .card {
+    width: 50%;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .card {
+    width: 100%;
+    justify-content: center;
   }
 }
