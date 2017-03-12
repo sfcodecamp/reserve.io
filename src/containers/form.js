@@ -26,7 +26,7 @@ class MyForm extends Component {
       <div>
         <h1 className="title">Welcome {'Guest'} !</h1>
         <div>
-          <form onSubmit={handleSubmit(this.onSubmit)}>
+          <form className="center-form" onSubmit={handleSubmit(this.onSubmit)}>
             <Field name="city"
               floatingLabelText="Enter City"
               type="text"
