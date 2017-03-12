@@ -4,6 +4,6 @@ import GetRestaurant from './get_restaurant';
 
 const rootReducer = combineReducers({
   form: formReducer,
-  restaurants: GetRestaurant
+  restaurants: GetRestaurant,
 });
 export default rootReducer;
