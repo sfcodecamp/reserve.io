@@ -16,10 +16,10 @@ class ContainerCards extends Component {
       <div className="cards">
         {restaurants.data.map(restaurant => (
           <ComponentCard
-            title={restaurant.title}
-            image={restaurant.image}
-            subTitle={restaurant.subTitle}
-            description={restaurant.description}
+            title={restaurant.name}
+            image={restaurant.image_url}
+            subTitle={restaurant.phone}
+            description={restaurant.address}
           />
         ))}
       </div>
