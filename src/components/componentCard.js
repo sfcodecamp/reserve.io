@@ -16,13 +16,13 @@ class RestaurantCard extends Component {
     super(props)
   }
   render(){
-    const { image, title, subtTitle, description } = this.props;
+    const { image, title, subTitle, description } = this.props;
     return (
       <Card className="card" style={styles.font}>
         <CardMedia>
           <img src={image} alt="Restaurant"/>
         </CardMedia>
-        <CardTitle title={title} subtitle={subtTitle} />
+        <CardTitle title={title} subtitle={subTitle} />
         <CardText>
           {description}
         </CardText>

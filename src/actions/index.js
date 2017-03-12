@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_RESTAURANT } from './types';
+import { GET_RESTAURANT, RESET_CARDS } from './types';
 
 export function sendForm(params){
   const url = `https://hu1b1nudk7.execute-api.us-east-1.amazonaws.com/dev/opentable?city=${params.city}`
@@ -9,6 +9,12 @@ export function sendForm(params){
       dispatch({type: GET_RESTAURANT, payload: data})
     })
   }
+}
+
+export function resetCards(){
+  return ({
+    type: RESET_CARDS
+  })
 }
 
 const getAvailabilityById = (id) => {

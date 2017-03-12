@@ -17,6 +17,12 @@ class MyForm extends Component {
   onSubmit(props){
     this.props.sendForm(props)
   }
+  onHandleResetButton(){
+    const { reset } = this.props;
+    reset()
+    this.props.resetCards();
+  }
+
   render(){
     const style = {
       margin: 12,
@@ -75,8 +81,7 @@ class MyForm extends Component {
               <RaisedButton
                 style={style}
                 label="Clear"
-                onTouchTap={reset}
-                disabled={pristine}
+                onTouchTap={ () => this.onHandleResetButton()}
                 labelColor="#FFF"
                 backgroundColor="#D4606C"/>
             </div>
