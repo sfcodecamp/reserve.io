@@ -29,4 +29,4 @@ io.on('connection', (socket) => {
   });
 });
 
-io.set('origins', 'https://aqueous-reef-24485.herokuapp.com/*');
+io.set('origins', 'https://aqueous-reef-24485.herokuapp.com:*');
