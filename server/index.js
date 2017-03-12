@@ -1,11 +1,14 @@
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
+var slackbot = require('./slackbot/slackbot');
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './build/')));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use('/slack', slackbot);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, './build/index.html'));
