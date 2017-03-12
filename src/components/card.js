@@ -14,7 +14,7 @@ const styles = {
 const RestaurantCard = () => (
   <Card className="card" style={styles.font}>
     <CardMedia>
-      <img src="images/nature-600-337.jpg" alt="Restaurant"/>
+      <img src="https://www.opentable.com/img/restimages/151612.jpg" alt="Restaurant"/>
     </CardMedia>
     <CardTitle title="Restaurant Name" subtitle="Card subtitle" />
     <CardText>
