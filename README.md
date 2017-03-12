@@ -3,8 +3,9 @@
 [Open Table]:https://github.com/realworldreact/reactathon2017/blob/master/apis.md
 
 # reserve.io
-An easy way for groups to book reservations through Open Table. 
+An easy way for groups to book reservations through Open Table.
 
+[Beta Demo](https://aqueous-reef-24485.herokuapp.com/)
 ##What we're working with
 1. React
 2. Redux
@@ -13,7 +14,7 @@ An easy way for groups to book reservations through Open Table.
 ##Getting Started
 ####Before Getting Started, install Node on your machine
 1. Fork the [Reserve.io][] repo to your Github account
-2. Clone the repo from your Github account to your machine. 
+2. Clone the repo from your Github account to your machine.
 3. CD into your Reserve.io directory and run the following commands:
   - npm install (installs all of the dependencies needed)
   - git remote add upstream https://github.com/sfcodecamp/reserve.io.git (set a remote to the main repo so later you can pull down updates from other team members)
@@ -35,5 +36,5 @@ upstream	https://github.com/sfcodecamp/reserve.io.git (push)
 ```
 
 3. Run git pull --rebase upstream master
-4. You now have the latest code! 
+4. You now have the latest code!
 5. Do you see merge conflicts? This [Resolving Merge Conflicts][] article is pretty good for explaining what to do.
