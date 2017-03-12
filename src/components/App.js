@@ -5,6 +5,7 @@ import './App.css';
 
 import NavBar from './navbar';
 import Form from '../containers/form'
+import ContainerCards from '../containers/containerCards'
 
 // Setup Socket.io:
 import { SocketProvider } from 'socket.io-react';
@@ -12,17 +13,17 @@ import io from 'socket.io-client';
 const DEV_HOST = 'http://localhost:8000';
 const PROD_HOST = '';
 
-const socket = io.connect(DEV_HOST);
+// const socket = io.connect(DEV_HOST);
 
 class App extends Component {
   constructor() {
     super();
   }
   componentDidMount() {
-    socket.emit('init');
-    socket.on('welcome', data => {
-      console.log(data);
-    });
+    // socket.emit('init');
+    // socket.on('welcome', data => {
+    //   console.log(data);
+    // });
   }
   render() {
     return (
@@ -31,12 +32,7 @@ class App extends Component {
           <h1 className="center">Welcome to Reserve!</h1>
           <div className="container">
             <Form />
-            <div className="cards">
-              <RestaurantCard />
-              <RestaurantCard />
-              <RestaurantCard />
-              <RestaurantCard />
-            </div>
+            <ContainerCards />
           </div>
         </div>
       </MuiThemeProvider>
