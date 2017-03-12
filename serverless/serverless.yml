@@ -1,0 +1,20 @@
+service: serverlessquick
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+
+functions:
+  opentable:
+    handler: handler.opentable
+    events:
+      - http:
+          path: opentable
+          method: get
+          cors: true
+  landingPage:
+    handler: handler.landingPage
+    events:
+      - http:
+          path: home
+          method: get
