@@ -4,24 +4,8 @@ import RestaurantCard from './card';
 import './App.css';
 
 import NavBar from './navbar';
-
 import Form from '../containers/form'
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    margin: '50px'
-  },
-  cards: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: '800px'
-  }
-}
 
 class App extends Component {
   render() {
@@ -29,9 +13,9 @@ class App extends Component {
       <MuiThemeProvider>
         <div>
           <NavBar />
-          <div style={styles.container}>
+          <div className="container">
             <Form />
-            <div style={styles.cards}>
+            <div className="cards">
               <RestaurantCard />
               <RestaurantCard />
               <RestaurantCard />

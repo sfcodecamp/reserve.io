@@ -2,9 +2,25 @@ html {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
 }
 
-.title{
+.title {
   text-align: center;
 }
-.center-form{
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 800px;
+}
+
+.center-form {
   text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 50px;
 }
