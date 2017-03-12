@@ -5,6 +5,7 @@ import './App.css';
 
 import NavBar from './navbar';
 import Form from '../containers/form'
+import ContainerCards from '../containers/containerCards'
 
 // Setup Socket.io:
 import { SocketProvider } from 'socket.io-react';
@@ -13,6 +14,7 @@ const DEV_HOST = 'http://localhost:8000';
 const PROD_HOST = 'https://aqueous-reef-24485.herokuapp.com';
 
 const socket = io.connect(PROD_HOST);
+// const socket = io.connect(DEV_HOST);
 
 class App extends Component {
   componentDidMount() {
@@ -29,12 +31,7 @@ class App extends Component {
           <h1 className="center">Welcome to Reserve!</h1>
           <div className="container">
             <Form />
-            <div className="cards">
-              <RestaurantCard />
-              <RestaurantCard />
-              <RestaurantCard />
-              <RestaurantCard />
-            </div>
+            <ContainerCards />
           </div>
         </div>
       </MuiThemeProvider>

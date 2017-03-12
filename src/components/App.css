@@ -12,17 +12,18 @@ body {
 }
 
 .cards {
+  align-items: flex-start;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  max-width: 800px;
+  width: 73%;
 }
 
 .card {
   font-family: GillSans, Calibri, Trebuchet, sans-serif;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 28%;
+  width: 32%;
 }
 
 .center {
@@ -42,7 +43,8 @@ h2 {
 }
 
 .form {
-  margin-right: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
   margin-bottom: 30px;
 }
 
@@ -50,41 +52,34 @@ h2 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   margin: 40px 30px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1217px) {
   .cards {
-    justify-content: center;
+    width: 100%;
   }
 
+  .card {
+    width: 24%;
+  }
+}
+
+@media screen and (max-width: 1160px) {
+  .card {
+    width: 32%;
+  }
+}
+
+@media screen and (max-width: 810px) {
   .card {
     width: 48%;
   }
 }
 
-@media screen and (max-width: 620px) {
-  .cards {
-    justify-content: center;
-  }
-
-  .card {
-    margin: 0;
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 835px) {
-  .card {
-    width: 50%;
-    justify-content: center;
-  }
-}
-
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 560px) {
   .card {
     width: 100%;
-    justify-content: center;
   }
 }
