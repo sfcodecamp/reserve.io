@@ -24,9 +24,9 @@ class MyForm extends Component {
     const { handleSubmit, reset, pristine } = this.props;
     return(
       <div className="form">
-        <h1 className="title">Welcome {'Guest'} !</h1>
+        <h2 className="title">Search for restaurants</h2>
         <div>
-          <form className="center-form" onSubmit={handleSubmit(this.onSubmit)}>
+          <form className="center" onSubmit={handleSubmit(this.onSubmit)}>
             <Field name="city"
               floatingLabelText="Enter City"
               type="text"
