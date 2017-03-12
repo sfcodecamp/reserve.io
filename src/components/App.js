@@ -4,7 +4,7 @@ import RestaurantCard from './card';
 import './App.css';
 
 import Form from '../containers/form'
-=======
+
 const styles = {
   display: 'flex',
   flexWrap: 'wrap',
@@ -16,7 +16,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div style={styles}>
-          <h1>Welcome to Reserve!</h1>
           <Form />
           <RestaurantCard />
           <RestaurantCard />
