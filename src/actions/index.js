@@ -1,12 +1,12 @@
 import axios from 'axios';
 
-import {GOOGLE_API, GET_YELP, RECIEVE_YELP,
-  REMOVE_YELP, LAST_CITY, AUTH_USER, ERROR_YELP,
-  UNAUTH_USER, TAB_INDEX, UPDATE_GUEST} from './types';
+import { GET_RESTAURANT } from './types';
 
-export function changeTab(index){
-  return ({
-    type: TAB_INDEX,
-    payload: index
-  })
+export function sendForm(params){
+  const request = axios.get(`https://hu1b1nudk7.execute-api.us-east-1.amazonaws.com/dev/opentable?city=${params.city}`);
+  return (dispatch) => {
+    request.then( ({data}) => {
+      dispatch({type: GET_RESTAURANT, payload: data})
+    })
+  }
 }

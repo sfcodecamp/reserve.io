@@ -3,108 +3,83 @@ import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import * as actions from '../actions/';
 import RaisedButton from 'material-ui/RaisedButton';
-import { RadioButton } from 'material-ui/RadioButton'
-import MenuItem from 'material-ui/MenuItem'
-import { AutoComplete as MUIAutoComplete } from 'material-ui'
 import {
   DatePicker,
   TimePicker,
-  RadioButtonGroup,
-  SelectField,
-  Slider,
-  TextField,
-  Toggle
+  TextField
 } from 'redux-form-material-ui'
 
-const validate = value => value == null ? 'Required' : undefined
-const isNumber = (number) => {
-  if(parseInt(number) === NaN && parseInt(number) % 1 !== 0){
-    return 'Error'
-  }
-}
-
-class Form extends Component {
+class MyForm extends Component {
   constructor(props){
     super(props);
-    // this.onSubmit = this.onSubmit.bind(this);
-    // this.onHandleResetButton = this.onHandleResetButton.bind(this);
+    this.onSubmit = this.onSubmit.bind(this)
   }
-
+  onSubmit(props){
+    this.props.sendForm(props)
+  }
   render(){
     const style = {
       margin: 12,
     };
-    const { handleSubmit, submitting, reset, pristine } = this.props;
+    const { handleSubmit, reset, pristine } = this.props;
     return(
       <div>
         <h1 className="title">Welcome {'Guest'} !</h1>
         <div>
-          <form>
-            <Field
-              hintText={"San Francisco"}
+          <form onSubmit={handleSubmit(this.onSubmit)}>
+            <Field name="city"
+              floatingLabelText="Enter City"
               type="text"
-              name="city"
+              ref="city" withRef
               component={TextField}/>
 
             <Field name="date"
               component={DatePicker}
               format={null}
-              onChange={(value) => {
-                console.log('date changed ', value) // eslint-disable-line no-console
-              }}
-              hintText="Day of reservation?"
-              validate={validate}/>
+              floatingLabelText="Day of reservation?"
+              />
 
             <Field name="time"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              onChange={(value) => {
-                console.log('time changed ', value) // eslint-disable-line no-console
-              }}
-              hintText="At what time?"
-              validate={validate}/>
+              floatingLabelText="At what time?"
+              />
 
-              <Field
-                hintText={"Number of Guests"}
-                type="text"
-                name="guests"
-                component={TextField}/>
+            <Field name="guests"
+              floatingLabelText={"Number of Guests"}
+              type="text"
+              ref="guests" withRef
+              component={TextField}/>
 
-            <Field name="deadline-date"
+            <Field name="deadLineDate"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              onChange={(value) => {
-                console.log('time changed ', value) // eslint-disable-line no-console
-              }}
-              hintText="DEADLINE's DATE"
-              validate={validate}/>
+              floatingLabelText="DEADLINE's DATE"
+              />
 
-            <Field name="deadline-time"
+            <Field name="deadLineTime"
               component={TimePicker}
               format={null}
               defaultValue={null}
-              onChange={(value) => {
-                console.log('time changed ', value) // eslint-disable-line no-console
-              }}
-              hintText="DEADLINE's TIME"
-              validate={validate}/>
+              floatingLabelText="DEADLINE's TIME"
+              />
 
-              <div>
-                <RaisedButton
-                  label="Submit"
-                  type="submit"
-                  labelColor="#FFFFFF"
-                  backgroundColor="#26A69A"/>
-                <RaisedButton
-                  style={style}
-                  label="Clear"
-                  onTouchTap={reset}
-                  disabled={pristine}
-                  labelColor="#FFFFFF"
-                  backgroundColor="#C15055"/>
-              </div>
+            <div>
+              <RaisedButton
+                label="Submit"
+                type="submit"
+                labelColor="#FFFFFF"
+                backgroundColor="#26A69A"/>
+              <RaisedButton
+                style={style}
+                label="Clear"
+                onTouchTap={reset}
+                disabled={pristine}
+                labelColor="#FFFFFF"
+                backgroundColor="#C15055"/>
+            </div>
 
           </form>
         </div>
@@ -113,9 +88,35 @@ class Form extends Component {
   }
 }
 
-Form = reduxForm({
-  form: 'myForm',
-  validate
-})(Form)
+const validate = values => {
+  const errors = {};
+  var regex = /\D/
+  if (!values.city){
+    errors.city= 'Please enter a city'
+  }
+  if (!values.date){
+    errors.date= 'Please enter a date'
+  }
+  if (!values.time){
+    errors.time= 'Please enter a time'
+  }
+  if (!values.guests){
+    errors.guests= 'Please enter number of guests'
+  } else if(regex.test(values.guests)){
+    errors.guests = 'Please enter a valid number'
+  }
+  if (!values.deadLineDate){
+    errors.deadLineDate= 'Please enter your dead-line date'
+  }
+  if (!values.deadLineTime){
+    errors.deadLineTime= 'Please enter your dead-line time'
+  }
+  return errors;
+}
 
-export default Form = connect(null, actions)(Form)
+MyForm = reduxForm({
+  form: 'MyForm',
+  validate
+})(MyForm)
+
+export default MyForm = connect(null, actions)(MyForm)
