@@ -2,12 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Field, reduxForm } from 'redux-form'
 import * as actions from '../actions/';
+import RaisedButton from 'material-ui/RaisedButton';
 import { RadioButton } from 'material-ui/RadioButton'
 import MenuItem from 'material-ui/MenuItem'
 import { AutoComplete as MUIAutoComplete } from 'material-ui'
 import {
-  AutoComplete,
-  Checkbox,
   DatePicker,
   TimePicker,
   RadioButtonGroup,
@@ -18,7 +17,11 @@ import {
 } from 'redux-form-material-ui'
 
 const validate = value => value == null ? 'Required' : undefined
-
+const isNumber = (number) => {
+  if(parseInt(number) === NaN && parseInt(number) % 1 !== 0){
+    return 'Error'
+  }
+}
 
 class Form extends Component {
   constructor(props){
@@ -28,9 +31,14 @@ class Form extends Component {
   }
 
   render(){
+    const style = {
+      margin: 12,
+    };
+    const { handleSubmit, submitting, reset, pristine } = this.props;
     return(
       <div>
         <h1 className="title">Welcome {'Guest'} !</h1>
+        <div>
           <form>
             <Field
               hintText={"San Francisco"}
@@ -57,16 +65,49 @@ class Form extends Component {
               hintText="At what time?"
               validate={validate}/>
 
-            <Field name="deadline"
+              <Field
+                hintText={"Number of Guests"}
+                type="text"
+                name="guests"
+                component={TextField}/>
+
+            <Field name="deadline-date"
               component={TimePicker}
               format={null}
               defaultValue={null}
               onChange={(value) => {
                 console.log('time changed ', value) // eslint-disable-line no-console
               }}
-              hintText="DEADLINE"
+              hintText="DEADLINE's DATE"
               validate={validate}/>
+
+            <Field name="deadline-time"
+              component={TimePicker}
+              format={null}
+              defaultValue={null}
+              onChange={(value) => {
+                console.log('time changed ', value) // eslint-disable-line no-console
+              }}
+              hintText="DEADLINE's TIME"
+              validate={validate}/>
+
+              <div>
+                <RaisedButton
+                  label="Submit"
+                  type="submit"
+                  labelColor="#FFFFFF"
+                  backgroundColor="#26A69A"/>
+                <RaisedButton
+                  style={style}
+                  label="Clear"
+                  onTouchTap={reset}
+                  disabled={pristine}
+                  labelColor="#FFFFFF"
+                  backgroundColor="#C15055"/>
+              </div>
+
           </form>
+        </div>
       </div>
     )
   }
