@@ -23,7 +23,7 @@ class MyForm extends Component {
     };
     const { handleSubmit, reset, pristine } = this.props;
     return(
-      <div>
+      <div className="form">
         <h1 className="title">Welcome {'Guest'} !</h1>
         <div>
           <form className="center-form" onSubmit={handleSubmit(this.onSubmit)}>
